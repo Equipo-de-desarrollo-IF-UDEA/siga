@@ -13,18 +13,21 @@ import { Observable } from 'rxjs';
 import { UserService } from '@services/user.service';
 import { RolService } from '@services/rol.service';
 import { DepartmentService } from '@services/department.service';
+import { SchoolService } from '@services/school.service';
 
 //interfaces
 import { RolBase } from '@interfaces/rol';
+import { SchoolResponse } from '@interfaces/school';
 import { DepartmentBase, DepartmentInDB } from '@interfaces/department';
+import { UserCreate } from '@interfaces/user';
 
 //data
 import { id_type } from '@shared/data/id_type';
-import { SchoolService } from '@services/school.service';
-import { SchoolResponse } from '@interfaces/school';
+
+//shared
 import { scale } from '@shared/data/scale';
-import { UserCreate } from '@interfaces/user';
 import { vinculation_type } from '@shared/data/vinculation';
+
 
 @Component({
   selector: 'app-sign-up',
@@ -55,8 +58,8 @@ export class SignUpComponent {
     names: ['', Validators.required],
     email: ['', [Validators.required, Validators.pattern(this.is_email_valid)]],
     identification_type: ['', Validators.required],
-    identification_number: ['', Validators.required],
-    phone_number: ['', Validators.required],
+    identification_number: ['', [Validators.required, Validators.pattern("^[A-Z0-9]*$")]],
+    phone: ['', Validators.required],
     rol_id: [NaN, Validators.required],
     department_id: ['', Validators.required],
     password: [

@@ -24,14 +24,14 @@ class ApplicationPolicy(Base[Application, ApplicationCreate, ApplicationUpdate])
         elif not (who.rol.scope <= to.user.rol.scope):
             raise application_401
 
-        elif who.rol.scope == 7 or who.rol.scope == 6:
+        elif (who.rol.scope == 7) or (who.rol.scope == 6):
             if not (to.user.department_id == who.department_id):
                 raise application_401
 
         elif who.rol.scope == 5:
             if not (to.user.department.school_id == who.department.school_id):
                 raise application_401
-            
+
         return None
 
     # Who can create a application of a subtype
@@ -42,7 +42,7 @@ class ApplicationPolicy(Base[Application, ApplicationCreate, ApplicationUpdate])
         # Permiso
         if (application_sub_type in [1, 2, 3, 4, 5, 6, 7] and
                 not (who.rol.scope == 11 or who.rol.scope == 9)):
-            
+
             raise application_401
 
         # Comisión
@@ -51,7 +51,7 @@ class ApplicationPolicy(Base[Application, ApplicationCreate, ApplicationUpdate])
             raise application_401
 
         # Dedicación
-        if (application_sub_type == 10 and not (who.rol.scope == 7)):
+        if (application_sub_type == 10 and not (who.rol.scope == 9)):
             raise application_401
 
         return None
