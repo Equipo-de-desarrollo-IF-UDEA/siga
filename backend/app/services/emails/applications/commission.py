@@ -46,6 +46,6 @@ def compliment_email(to_name: str, to_lname: str, observation: str, files: list[
                            subtype=subtype,
                            filename=jfile['name'])
 
-    with smtplib.SMTP_SSL("smtp.gmail.com", port=465) as smtp:
+    with smtplib.SMTP_SSL("smtp.gmail.com", port=settings.smtp_port_email) as smtp:
         smtp.login(settings.smtp_user_email, settings.smtp_user_password._secret_value)
         smtp.send_message(msg)

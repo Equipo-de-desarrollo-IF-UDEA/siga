@@ -36,7 +36,7 @@ def update_status_email(tipo_solicitud: str, observacion: str, nombre_estado: st
         subtype="html"
     )
 
-    with smtplib.SMTP_SSL("smtp.gmail.com", port=465) as smtp:
+    with smtplib.SMTP_SSL("smtp.gmail.com", port=settings.smtp_port_email) as smtp:
         smtp.login(_my_email, _my_pwd)
         smtp.send_message(msg)
 
@@ -61,6 +61,6 @@ def create_application_email(to_name: str, to_lname: str, tipo_solicitud: str, t
         subtype="html"
     )
 
-    with smtplib.SMTP_SSL("smtp.gmail.com", port=465) as smtp:
+    with smtplib.SMTP_SSL("smtp.gmail.com", port=settings.smtp_port_email) as smtp:
         smtp.login(_my_email, _my_pwd)
         smtp.send_message(msg)
