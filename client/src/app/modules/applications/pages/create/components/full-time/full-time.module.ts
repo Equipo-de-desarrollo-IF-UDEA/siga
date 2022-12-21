@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { QuillModule } from 'ngx-quill';
 
 import { FullTimeRoutingModule } from './full-time-routing.module';
 import { FullTimeFormatComponent } from './pages/full-time-format/full-time-format.component';
@@ -8,6 +9,8 @@ import { InstitutionalDevelopmentPlanComponent } from './pages/institutional-dev
 import { StartLetterComponent } from './pages/start-letter/start-letter.component';
 import { StatusComponent } from './pages/status/status.component';
 import { WorkplanComponent } from './pages/workplan/workplan.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { SharedModule } from '../../../../../../shared/shared.module';
 
 
 @NgModule({
@@ -21,7 +24,13 @@ import { WorkplanComponent } from './pages/workplan/workplan.component';
   ],
   imports: [
     CommonModule,
-    FullTimeRoutingModule
+    FullTimeRoutingModule,
+    FormsModule,
+    ReactiveFormsModule,
+    QuillModule.forRoot(),
+    SharedModule
+    
+
   ]
 })
 export class FullTimeModule { }

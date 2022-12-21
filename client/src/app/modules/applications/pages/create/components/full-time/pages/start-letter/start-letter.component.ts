@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-start-letter',
@@ -6,6 +6,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./start-letter.component.scss']
 })
 export class StartLetterComponent implements OnInit {
+
+  @Input() idDedication: number | string = 0;
+  @Input() editable: any;
+
+  cartaInicio: any;
+
+  fecha = new Date();
+
+  usuario:any;
+  
 
   constructor() { }
 

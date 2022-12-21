@@ -24,6 +24,8 @@
     "@scss-extend/animate-scss": "^1.0.1",
     "bootstrap": "^5.2.2",
     "ngx-cookie-service": "^14.0.1",
+    "ngx-quill": "^20.0.1",
+    "quill": "^1.3.7",
     "rxjs": "~7.5.0",
     "sweetalert2": "^11.4.8",
     "tslib": "^2.3.0",
